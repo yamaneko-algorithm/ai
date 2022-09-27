@@ -1,0 +1,159 @@
+#board {
+  position: relative;
+  background-color: silver;
+  width: 600px;
+  height:600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hexagon { 
+  position: absolute;
+  width: 44px;
+  height: 25px;
+  background-color: #fff;
+} 
+:root {
+  --player-color: red;
+  --player1-win: 51;
+}
+
+.piece {
+  position: absolute;
+  z-index: 1;
+}
+.piece[data-state="0"] {
+  display: none;
+}
+.piece[data-state="1"] { 
+  left: -0.8px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 25px;
+  height: 45px;
+  background-image: url(../img/red_king.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.piece[data-state="2"]{
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+  cursor: pointer;
+}
+.piece[data-state="3"] { 
+  background-image: url(../img/blue_king.png);
+  background-repeat: no-repeat;
+  left: -0.8px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 25px;
+  height: 45px;
+  background-size: 25px;
+}
+.piece[data-state="4"] {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: blue;
+}
+.piece[data-state="1"].scale,
+.piece[data-state="3"].scale {
+  width: 30px;
+  height: 50px;
+  background-size: 30px;
+}
+.piece[data-state="2"].scale,
+.piece[data-state="4"].scale {
+  width: 35px;
+  height: 35px;
+}
+
+.movableMass {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--player-color);
+  cursor: pointer;
+}
+
+.hexagon::before,
+.hexagon::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 0;
+}
+
+.hexagon::before {
+  transform: rotate(60deg);
+}
+
+.hexagon::after {
+  transform: rotate(-60deg);
+}
+
+#hexagon-template {
+  display: none;
+} 
+
+#evaluetion_value {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  width: 600px;
+  height:30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#player1 {
+  position: absolute;
+  content: "あ";
+  left: 5px;
+}
+#player2 {
+  position: absolute;
+  right: 5px;
+}
+#player1_bar {
+  position: absolute;
+  background-color: red;
+  left: 90px;
+  width: calc(420px * 0.01 * var(--player1-win));
+  height:20px;
+}
+#player2_bar {
+  position: absolute;
+  background-color: blue;
+  right: 90px;
+  width: calc(420px * 0.01 * (100 - var(--player1-win)));
+  height:20px;
+}
+
