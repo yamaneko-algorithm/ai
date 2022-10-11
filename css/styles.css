@@ -52,6 +52,10 @@ dl > div.appear dd {
     transform: none;
   }
 }
+#remark {
+  text-align: left;
+  margin-left: 16px;
+}
 
 
 /* 評価値バー */
