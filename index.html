@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="discription" content="アブストラクトゲーム「CATENA(カテナ)」を遊べるサイトです。">
+  <title>やまねこアルゴリズム</title>
+  <link rel="icon" href="img/icon.jpg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <time id="modify"></time>
+    <img src="img/hull_icon.jpg">
+    <h1>やまねこアルゴリズム</h1>
+  </header>
+  <p>ここでは、ゲームマーケット2022秋・10/30(日)にて出展予定のアブストラクトゲーム<strong class="mark_yellow">「CATENA(カテナ)」</strong>を先行体験できます！</p> 
+
+  <dl>
+    <div>
+      <dt><b>ルール概要</b></dt>
+      <dd>
+        <p>人数：2人 プレイ時間：1〜15分 年齢：6歳以上</p>
+        <ul id="rule">
+          <li><b>コンポーネント</b>：王様<img src="img/red_king.png" width="17px">3つ、石<img src="img/red_stone.png" width="17px">4つを赤青2セットと、六角形ボード1つ</li>
+          <li><b>ゲームの準備</b>：あなたは赤色、CPUは青色です。下図のように王様と石を並べ、先後を決めてゲームスタートします。</li>
+          <li><b>ゲームの流れ</b>：お互い交互に自分の駒をいずれか1つ動かしていきます。</li>
+          <li><b>勝利条件</b>：<strong class="mark_yellow">自分の王様で相手の王様をタッチ</strong>できれば勝ちとなります。タッチする/される王様はどれでも構いません。</li>
+          <li><b>駒の動き</b>
+            <ul>
+              <li>王様：動けるマスは白い六角形のマスのみです。好きな方向を選んで、障害物（自分の王様、自分の石、相手の王様、相手の石、壁）に当たるまで真っ直ぐ進めます。<strong class="mark_yellow">自分の石にあたったら連続して動かす</strong>ことができます(動かさなくてもよいです)。</li>
+              <li>石：すべてのマスを動けます。好きな方向を選んで、障害物がなければ1マスだけ進むことができます。</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="remark">※<strong class="mark_yellow">「タッチ」</strong>とは、<strong class="mark_yellow">「自分の王様が進行方向上にある相手の王様で止まること」</strong>をいいます。なので、自分の王様が相手の王様と隣接してもタッチとならなかったり、1マスも動かずにタッチできたりする場合があります。</p>
+        <p class="remark">※同一盤面が4回発生することを<strong class="mark_yellow">「千日手」</strong>といいます。この場合は将棋と同様に、「連続王手による千日手」は<strong class="mark_yellow">「王手している側の負け」</strong>、それ以外は<strong class="mark_yellow">「引き分け」</strong>となります。</p>
+      </dd>
+    </div>
+  </dl>
+
+  <!-- <div id="evaluetion_value">
+    <div id="player1">先手 50%</div>
+    <div id="player1_bar"></div>
+    <div id="player2_bar"></div>
+    <div id="player2">50% 後手</div>
+  </div> -->
+  <div id="option">
+    <div id="sengo">
+      <div>先手：</div>
+      <div class="box1"><span id="sente"></span></div>
+      <div>&nbsp;vs&nbsp;</div>
+      <div class="box1"><span id="gote"></span></div>
+      <div>：後手</div> 
+    </div>
+    <div id="turn">0ターン目</div>
+  </div>
+  <!-- 盤 -->
+  <div id="container">
+    <div id="board" class="board"></div>
+    <div id="menu" class="menu">
+      <div id="vs_cpu" class="box">CPUと対戦する</div>
+      <div id="cpu_cpu" class="box">CPU同士の対戦を見る</div>
+    </div>
+
+    <div id="menu2" class="menu">
+      <div id="Lv1" class="box small">CPU 弱い</div>
+      <div id="Lv2" class="box small">CPU 普通</div>
+      <div id="Lv3" class="box small">CPU 強い</div>
+    </div>
+    <div id="menu3" class="menu">
+      <div id="first" class="box small">先手</div>
+      <div id="second" class="box small">後手</div>
+    </div>
+    <div id="win">
+      <p id="winer">YOU WIN!</p>
+      <div id="close_btn"></div>
+    </div>
+  </div>
+  <!-- 各マスを描画するためのテンプレート -->
+  <div id="hexagon-template" class="hexagon">
+    <div class="piece"></div>
+  </div>
+  <div id="menu_btn">メニューに戻る</div>
+
+  <script src="js/main.js"></script>
+
+  <footer>
+    <div>
+      お問合せなど→
+      <a href="https://twitter.com/ymnk_algorithm" target="_blank">
+        <img src="img/2021 Twitter logo - blue.png" alt="Twitterのリンク" width="30px">
+      </a>
+    </div>
+    <div margin-left="5px">
+      &nbsp;出展情報→
+      <a href="https://gamemarket.jp/booth/4533" target="_blank" >
+        <img src="img/img-logo_c.png" alt="ゲームマーケットのリンク" height="25px">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

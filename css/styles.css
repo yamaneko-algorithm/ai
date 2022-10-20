@@ -1,0 +1,443 @@
+:root {
+  --player-color: red;
+  --player1-win: 50;
+  --width: 380;
+}
+
+header {
+  text-align: center;
+}
+header time {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+#modify::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-image:url(../img/update_icon.png);
+  background-size: contain;
+  vertical-align: -1px;
+  margin-right: 2px;
+}
+header img {
+  width: 20%;
+}
+header h1 {
+  margin-top: 0;
+}
+.mark_yellow {
+  background: linear-gradient(transparent 60%, #ffff00 0%);
+}
+.mark_red {
+  background: linear-gradient(transparent 80%, red 0%);
+}
+.mark_blue {
+  background: linear-gradient(transparent 80%, blue 0%);
+}
+
+/* ルール */
+#rule {
+  text-align: left;
+}
+dl > div {
+  text-align: center;
+}
+dt {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+dt::before {
+  content: "▼";
+  transition: transform .3s;
+  position: absolute;
+  left: calc(50% - 70px);
+}
+dl > div.appear dt::before {
+  transform: scale(1, -1);
+}
+dd {
+  padding: 8px;
+  margin: 0;
+  display: none;
+  background-color: lemonchiffon;
+}
+dl > div.appear dd {
+  display: block;
+  animation: .3s fadeIn;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.remark {
+  text-align: left;
+  margin-left: 16px;
+}
+
+#option {
+  position: relative;
+  align-items: center;
+  background-color: #fff;
+  width: 550px;
+  height:30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#sengo {
+  position: absolute;
+  display: flex;
+}
+@media screen and (min-width: 480px) {
+  #sengo {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.box1 {
+  width: 75px;
+  text-align: center;
+}
+#turn {
+  position: absolute;
+  right: 0;
+}
+
+/* 評価値バー */
+#evaluetion_value {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  width: 550px;
+  height:30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#player1 {
+  position: absolute;
+  left: 5px;
+}
+#player2 {
+  position: absolute;
+  right: 5px;
+}
+#player1_bar {
+  position: absolute;
+  background-color: red;
+  left: 90px;
+  width: calc(370px * 0.01 * var(--player1-win));
+  height:20px;
+}
+#player2_bar {
+  position: absolute;
+  background-color: blue;
+  right: 90px;
+  width: calc(370px * 0.01 * (100 - var(--player1-win)));
+  height:20px;
+}
+
+#container {
+  position: relative;
+  width: 550px;
+  height: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#board {
+  position: absolute;
+  background-color: silver;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* メニュー画面 */
+.menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.box {
+  width: 265px;
+  height: 70px;
+  text-align:center;
+  line-height: 70px;
+  background-color: #fff;
+  font-size: 18pt;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+
+  z-index: 1;
+}
+.box:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.small {
+  width: 170px;
+}
+#menu2 {
+  display: none;
+}
+#menu3 {
+  display: none;
+}
+
+/* ゲーム終了表示 */
+#win {
+  width: 200px;
+  height: 70px;
+  text-align:center;
+  line-height: 25px;
+  background-color: #fff;
+  font-size: 18pt;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  user-select: none;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1;
+  display: none;
+}
+#close_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: red;
+  cursor: pointer;
+}
+#close_btn::before,
+#close_btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  background-color: #fff;
+}
+#close_btn::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+#close_btn::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+/* 六角形マス */
+.hexagon { 
+  position: absolute;
+  width: 44px;
+  height: 25px;
+  background-color: #fff;
+  z-index: 0;
+} 
+.hexagon::before,
+.hexagon::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 0;
+}
+.hexagon::before {
+  transform: rotate(60deg);
+}
+.hexagon::after {
+  transform: rotate(-60deg);
+}
+#hexagon-template {
+  display: none;
+} 
+
+/* 駒の表示 */
+.piece {
+  position: absolute;
+  z-index: 1;
+  user-select: none;
+}
+.piece[data-state="0"] {
+  display: none;
+}
+.piece[data-state="1"] { 
+  left: -0.8px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 25px;
+  height: 45px;
+  background-image: url(../img/red_king.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.piece[data-state="2"]{
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+  cursor: pointer;
+}
+.piece[data-state="3"] { 
+  background-image: url(../img/blue_king.png);
+  background-repeat: no-repeat;
+  left: -0.8px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 25px;
+  height: 45px;
+  background-size: 25px;
+}
+.piece[data-state="4"] {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: blue;
+}
+.piece[data-state="1"].scale,
+.piece[data-state="3"].scale {
+  width: 30px;
+  height: 50px;
+  background-size: 30px;
+}
+.piece[data-state="2"].scale,
+.piece[data-state="4"].scale {
+  width: 35px;
+  height: 35px;
+}
+
+/* 移動可能なマスの表示 */
+.movableMass {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--player-color);
+  cursor: pointer;
+}
+
+/* 移動マスの点滅 */
+.flashh {
+  animation: flash 1s linear infinite;
+}
+@keyframes flash {
+  0%,100% {
+    opacity: 1;
+  }
+  50% {
+    background-color: #FFFACD;
+  }
+}
+.hexagon.flashh::before {
+  animation: flash 1s linear infinite;
+}
+.hexagon.flashh::after  {
+  animation: flash 1s linear infinite;
+}
+
+
+/* メニューボタン */
+#menu_btn {
+  position: relative;
+  margin: 10px auto;
+
+  width: 160px;
+  height: 30px;
+  text-align:center;
+  line-height: 30px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  user-select: none;
+}
+#menu_btn:hover {
+  box-shadow: 0 10px 20px rgba(0,0,20,0.5);
+}
+
+footer {
+  margin-top: 60px;
+  display: flex;
+}
+
+a {
+  vertical-align: -5px;
+}
+
+
+@media screen and (max-width:480px) {
+  #modify {
+    font-size: small;
+  }
+  header img {
+    width: 50%;
+    margin-bottom: -5px;
+  }
+  h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  ul {
+    padding-left: 26px;
+  }
+  dd {
+    font-size: 14px;
+  }
+  #option {
+    width: calc((var(--width) * 1px - 16px));
+  }
+  #sengo {
+    left: 10px;
+  }
+  #container {
+    zoom: calc((var(--width) - 16) / 550);
+  }
+  .hexagon {
+    zoom: 1.12;
+    transform: translateX(-30.5px) translateY(-28.5px);
+  }
+}
+
