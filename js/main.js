@@ -454,7 +454,7 @@ function cpuLv3(state) {
     arr[secondEval[0]] = secondEval[1];
     arr.push(TEBAN, secondEval[3]);
     const str = arr.join(",");
-    if (LOG_COUNT[str] === 3) { //千日手だったら
+    if (LOG_COUNT[str] === 3 && secondEval[3] > 0) { //千日手だったら
       flash(bestEval[0], bestEval[1]);
       move(bestEval[0], bestEval[1]);
     } else {
@@ -466,7 +466,7 @@ function cpuLv3(state) {
     arr[bestEval[0]] = bestEval[1];
     arr.push(TEBAN, bestEval[3]);
     const str = arr.join(",");
-    if (LOG_COUNT[str] === 3) { //千日手だったら
+    if (LOG_COUNT[str] === 3 && bestEval[3] > 0) { //千日手だったら
       flash(secondEval[0], secondEval[1]);
       move(secondEval[0], secondEval[1]);
     } else {
