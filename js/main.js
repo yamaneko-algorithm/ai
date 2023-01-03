@@ -44,8 +44,6 @@ let beforeAfter;
 
 let LOG = []; //過去の盤面たち
 let LOG_COUNT = {} //その数
-let BACK = []
-let FORWARD = []
 
 /* 更新日の取得 */
 const last = new Date(document.lastModified);
@@ -64,16 +62,6 @@ dt.addEventListener("click", () => {
 })
 
 function btn() {
-  document.getElementById("back").addEventListener('click', () => {
-    if (TEBAN === null) {
-      move(BACK[TURN_NUMBER][0], BACK[TURN_NUMBER][1]);
-    }
-  })
-  document.getElementById("forward").addEventListener('click', () => {
-    if (TEBAN === null) {
-      move(FORWARD[TURN_NUMBER][0], FORWARD[TURN_NUMBER][1]);
-    }
-  })
   document.getElementById("vs_cpu").addEventListener('click', () => {
     document.getElementById("menu").style.display = "none";
     document.getElementById("menu2").style.display = "flex";
@@ -150,9 +138,7 @@ function btn() {
     TURN_NUMBER = 1;
     CPU_FLAG = false;
     LOG = [];
-    LOG_COUNT = {};
-    FORWARD = [];
-    BACK = [];
+    LOG_COUNT = {}
     showInitialState(initialState);
   })
 }
@@ -294,6 +280,13 @@ function dominationTerritory(state, analysisFlag) {
       }
     }
   }
+  // for (let i = 0; i < 3; i++) { //stopKingリストに相手の王様の座標が被らないようにする
+  //   for (let j = 7; j < 10; j++) {
+  //     if (myInclude(stopKing[i], state[j])) {
+  //       myDelete(stopKing[i], state[j]);
+  //     }
+  //   }
+  // }
   kingCount.forEach(elem => { //支配領域と相手の王様が被っていた場合を修正
     stateValue[elem] = 0;
   });
@@ -505,10 +498,6 @@ function move(beforeNumber, afterIndex) {
     afterDiv.dataset.state = (TEBAN === "YOU" || TEBAN === "CPU1") ? "1" : "3";
   } else {
     afterDiv.dataset.state = (TEBAN === "YOU" || TEBAN === "CPU1") ? "2" : "4";
-  }
-  if (TEBAN) {
-    FORWARD.push([beforeNumber, afterIndex])
-    BACK.push([beforeNumber, STATE[beforeNumber]])
   }
   STATE[beforeNumber] = afterIndex;
 }
