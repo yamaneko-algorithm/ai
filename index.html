@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!--   <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-244656591-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,7 +9,7 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-244656591-1');
-  </script> -->
+  </script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +23,11 @@
 <body>
   <header>
     <time id="modify"></time>
-<!--     <img src="img/hull_icon.jpg">
-    <h1>やまねこアルゴリズム</h1> -->
+    <img src="img/hull_icon.jpg">
+    <h1>やまねこアルゴリズム</h1>
   </header>
-<!--   <p id="abstract">ここでは、ゲームマーケット2022秋・10/30(日)にて出展予定のアブストラクトゲーム<strong class="mark_yellow">「CATENA(カテナ)」</strong>を先行体験できます！</p> 
- -->
+  <p id="abstract">このサイトでは、ゲームマーケット2022秋で出展したアブストラクトゲーム<strong class="mark_yellow">「CATENA(カテナ)」</strong>をCPU対戦で遊べます！</p> 
+
   <dl>
     <div>
       <dt><b>ルール概要</b></dt>
@@ -51,12 +51,6 @@
     </div>
   </dl>
 
-  <!-- <div id="evaluetion_value">
-    <div id="player1">先手 50%</div>
-    <div id="player1_bar"></div>
-    <div id="player2_bar"></div>
-    <div id="player2">50% 後手</div>
-  </div> -->
   <div id="option">
     <div id="sengo">
       <div>先手：</div>
@@ -72,7 +66,7 @@
     <div id="board" class="board"></div>
     <div id="menu" class="menu">
       <div id="vs_cpu" class="box">CPUと対戦する</div>
-      <div id="cpu_cpu" class="box">CPU同士の対戦を見る</div>
+      <div id="cpu_cpu" class="box">対戦例を見る</div>
     </div>
 
     <div id="menu2" class="menu">
@@ -93,10 +87,14 @@
   <div id="hexagon-template" class="hexagon">
     <div class="piece"></div>
   </div>
-  <div id="menu_btn">メニューに戻る</div>
+  <div id="btn">
+    <div id="back" class="back_forward"><<</div>
+    <div id="menu_btn">メニューに戻る</div>
+    <div id="forward" class="back_forward">>></div>
+  </div>
 
   <script src="js/main.js"></script>
-<!-- 
+
   <footer>
     <div>
       お問合せなど→
@@ -110,6 +108,6 @@
         <img src="img/img-logo_c.png" alt="ゲームマーケットのリンク" height="25px">
       </a>
     </div>
-  </footer> -->
+  </footer>
 </body>
 </html>

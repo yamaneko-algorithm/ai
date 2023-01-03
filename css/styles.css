@@ -128,40 +128,6 @@ dl > div.appear dd {
   right: 0;
 }
 
-/* 評価値バー */
-#evaluetion_value {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  width: 550px;
-  height:30px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#player1 {
-  position: absolute;
-  left: 5px;
-}
-#player2 {
-  position: absolute;
-  right: 5px;
-}
-#player1_bar {
-  position: absolute;
-  background-color: red;
-  left: 90px;
-  width: calc(370px * 0.01 * var(--player1-win));
-  height:20px;
-}
-#player2_bar {
-  position: absolute;
-  background-color: blue;
-  right: 90px;
-  width: calc(370px * 0.01 * (100 - var(--player1-win)));
-  height:20px;
-}
-
 #container {
   position: relative;
   width: 550px;
@@ -190,7 +156,7 @@ dl > div.appear dd {
   align-items: center;
 }
 .box {
-  width: 265px;
+  width: 260px;
   height: 70px;
   text-align:center;
   line-height: 70px;
@@ -397,12 +363,17 @@ dl > div.appear dd {
   animation: flash 1s linear infinite;
 }
 
+#btn {
+  display: flex;
+  align-items: center;
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* メニューボタン */
 #menu_btn {
-  position: relative;
   margin: 10px auto;
-
   width: 160px;
   height: 30px;
   text-align:center;
@@ -412,8 +383,21 @@ dl > div.appear dd {
   user-select: none;
 }
 #menu_btn:hover {
-  box-shadow: 0 10px 20px rgba(0,0,20,0.5);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.5);
 }
+.back_forward {
+  margin: 10px auto;
+  width: 40px;
+  height: 20px;
+  background-color: tomato;
+  color: white;
+  text-align:center;
+  line-height: 18px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  user-select: none;
+}
+
 
 footer {
   margin-top: 60px;
@@ -435,14 +419,9 @@ a {
     width: 50%;
     margin-bottom: -5px;
   }
-  body {
-    font-family: "Helvetica Neue",
-      Arial,
-      "Hiragino Kaku Gothic ProN",
-      "Hiragino Sans",
-      Meiryo,
-      sans-serif;
-  }
+  /* h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  } */
   ul {
     padding-left: 26px;
   }
@@ -450,6 +429,9 @@ a {
     font-size: 14px;
   }
   #option {
+    width: calc((var(--width) * 1px - 16px));
+  }
+  #btn {
     width: calc((var(--width) * 1px - 16px));
   }
   #sengo {
@@ -463,3 +445,4 @@ a {
     transform: translateX(-30.5px) translateY(-28.5px);
   }
 }
+
