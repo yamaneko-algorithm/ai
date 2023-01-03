@@ -414,7 +414,7 @@ function changeTurn() {
     }
   }
   if (CPU_FLAG && TEBAN) {
-    CPU = setTimeout("cpuLv3(STATE)", 1000);
+    CPU = setTimeout("cpuLv3(STATE)", 3000);
   }
 }
 
