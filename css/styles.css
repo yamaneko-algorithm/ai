@@ -415,13 +415,18 @@ a {
   #modify {
     font-size: small;
   }
+  body {
+    font-family: "Helvetica Neue",
+      Arial,
+      "Hiragino Kaku Gothic ProN",
+      "Hiragino Sans",
+      Meiryo,
+      sans-serif;
+  }
   header img {
     width: 50%;
     margin-bottom: -5px;
   }
-  /* h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  } */
   ul {
     padding-left: 26px;
   }
