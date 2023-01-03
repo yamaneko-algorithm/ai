@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!--   <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-244656591-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-244656591-1');
+  </script> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +23,11 @@
 <body>
   <header>
     <time id="modify"></time>
+<!--     <img src="img/hull_icon.jpg">
+    <h1>やまねこアルゴリズム</h1> -->
   </header>
+<!--   <p id="abstract">ここでは、ゲームマーケット2022秋・10/30(日)にて出展予定のアブストラクトゲーム<strong class="mark_yellow">「CATENA(カテナ)」</strong>を先行体験できます！</p> 
+ -->
   <dl>
     <div>
       <dt><b>ルール概要</b></dt>
@@ -38,6 +51,12 @@
     </div>
   </dl>
 
+  <!-- <div id="evaluetion_value">
+    <div id="player1">先手 50%</div>
+    <div id="player1_bar"></div>
+    <div id="player2_bar"></div>
+    <div id="player2">50% 後手</div>
+  </div> -->
   <div id="option">
     <div id="sengo">
       <div>先手：</div>
@@ -74,13 +93,23 @@
   <div id="hexagon-template" class="hexagon">
     <div class="piece"></div>
   </div>
-  <div id="btn">
-<!--     <div id="back" class="back_forward"><<</div> -->
-    <div id="menu_btn">メニューに戻る</div>
-<!--     <div id="forward" class="back_forward">>></div> -->
-  </div>
+  <div id="menu_btn">メニューに戻る</div>
 
   <script src="js/main.js"></script>
-
+<!-- 
+  <footer>
+    <div>
+      お問合せなど→
+      <a href="https://twitter.com/ymnk_algorithm" target="_blank">
+        <img src="img/2021 Twitter logo - blue.png" alt="Twitterのリンク" width="30px">
+      </a>
+    </div>
+    <div margin-left="5px">
+      &nbsp;出展情報→
+      <a href="https://gamemarket.jp/booth/4533" target="_blank" >
+        <img src="img/img-logo_c.png" alt="ゲームマーケットのリンク" height="25px">
+      </a>
+    </div>
+  </footer> -->
 </body>
 </html>
