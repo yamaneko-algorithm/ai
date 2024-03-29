@@ -1,1 +1,0 @@
-# yamaneko-algorithm.github.io
